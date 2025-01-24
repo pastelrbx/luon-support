@@ -1,0 +1,52 @@
+{
+    "name": "luon-support",
+    "displayName": "LUON Support",
+    "description": "Adds support for Luau Object Notation (.luon) files in VS Code",
+    "version": "1.0.0",
+    "publisher": "pastelrbx",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pastelrbx/luon-support"
+    },
+    "engines": {
+        "vscode": "^1.75.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "main": "./formatter.js",
+    "contributes": {
+        "languages": [
+            {
+                "id": "luon",
+                "aliases": [
+                    "Luau Object Notation",
+                    "luon"
+                ],
+                "extensions": [
+                    ".luon"
+                ],
+                "configuration": "./language-configuration.json",
+                "filenames": []
+            }
+        ],
+        "grammars": [
+            {
+                "language": "luon",
+                "scopeName": "source.luon",
+                "path": "./syntaxes/luon.tmLanguage.json"
+            }
+        ],
+        "commands": [
+            {
+                "command": "extension.formatLUON",
+                "title": "Format LUON"
+            }
+        ],
+        "configurationDefaults": {
+            "[luon]": {
+                "editor.defaultFormatter": "pastelrbx.luon-support"
+            }
+        }
+    }
+}

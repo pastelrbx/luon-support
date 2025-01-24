@@ -1,0 +1,72 @@
+{
+    "scopeName": "source.luon",
+    "patterns": [
+        {
+            "name": "comment.block.luon",
+            "begin": "--\\[\\[",
+            "end": "\\]\\]",
+            "patterns": [
+                {
+                    "name": "comment.block.inner.luon",
+                    "match": "."
+                }
+            ]
+        },
+        {
+            "name": "comment.line.double-dash.luon",
+            "match": "--[^\\[\\[].*$"
+        },
+        {
+            "name": "string.quoted.double.luon",
+            "begin": "\"",
+            "end": "\""
+        },
+        {
+            "name": "keyword.operator.assignment.luon",
+            "match": "="
+        },
+        {
+            "name": "constant.numeric.luon",
+            "match": "\\b\\d+\\b"
+        },
+        {
+            "name": "entity.name.tag.luon",
+            "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
+        },
+        {
+            "name": "meta.structure.tuple.luon",
+            "begin": "\\(",
+            "end": "\\)",
+            "patterns": [
+                {
+                    "include": "#allValues"
+                }
+            ]
+        }
+    ],
+    "repository": {
+        "allValues": {
+            "patterns": [
+                {
+                    "include": "#numbers"
+                },
+                {
+                    "include": "#strings"
+                }
+            ]
+        },
+        "numbers": {
+            "name": "constant.numeric.luon",
+            "match": "\\b\\d+\\b"
+        },
+        "strings": {
+            "name": "string.quoted.double.luon",
+            "begin": "\"",
+            "end": "\""
+        }
+    },
+    "fileTypes": [
+        "luon"
+    ],
+    "name": "Luau Object Notation"
+}
